@@ -13,7 +13,20 @@
       <p class="navbar-text">MOCK</p>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <%= link_to I18n.t('devise.log_out'), destroy_session_path(resource_name), :method => :delete, class: "btn btn-default" %><br/>
+
+      <%= yield :navbar %>
+
+      <% if @current_user %>
+          <li><%= link_to I18n.t('devise.user.log_out'), destroy_session_path(@current_user), :method => :delete, class: "btn btn-default" %></li>
+      <% end %>
+      <% if @current_admin %>
+          <li><%= link_to I18n.t('devise.admin.log_out'), destroy_session_path(@current_admin), :method => :delete, class: "btn btn-default" %></li>
+      <% end %>
+      <% unless @current_admin || @current_user %>
+          <li><%= link_to I18n.t('devise.user.log_in'), new_user_session_path, class: "btn btn-link" %></li>
+          <li><%= link_to I18n.t('devise.admin.log_in'), new_admin_session_path, class: "btn btn-link" %></li>
+      <% end %>
+
     </ul>
   </div>
 </nav>
