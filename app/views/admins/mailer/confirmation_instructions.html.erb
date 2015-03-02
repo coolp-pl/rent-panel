@@ -1,5 +1,5 @@
-<p><%= I18n.t('devise.greeting') %> <%= @email %>!</p>
+<p><%= I18n.t('devise.admin.mailer.mailer.greeting') %> <%= @email %>!</p>
 
-<p><%= I18n.t('devise.please_confirm_the_account') %></p>
+<p><%= I18n.t('devise.admin.mailer.mailer.please_confirm_the_account') %></p>
 
-<p><%= link_to I18n.t('devise.confirm_this_account'), confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to I18n.t('devise.admin.mailer.mailer.confirm_this_account'), confirmation_url(@resource, confirmation_token: @token) %></p>

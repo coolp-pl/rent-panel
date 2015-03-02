@@ -1,22 +1,22 @@
-<h2> <%= I18n.t('devise.edit_registration') %> </h2>
+<h2> <%= I18n.t('devise.admin.edit_registration') %> </h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, :class => "form-horizontal"}) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :email, I18n.t('devise.email'), class: "col-md-2 control-label" %>
+      <%= f.label :email, I18n.t('devise.admin.email'), class: "col-md-2 control-label" %>
       <div class="col-sm-4">
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div><%= I18n.t('devise.waiting_for_confirmation') %> <%= resource.unconfirmed_email %></div>
+        <div><%= I18n.t('devise.admin.waiting_for_confirmation') %> <%= resource.unconfirmed_email %></div>
     <% end %>
 
     <div class="form-group">
-      <%= f.label :password, I18n.t('devise.password'), class: "col-md-2 control-label" %>
-      <i><%= I18n.t('devise.leave_blank_to_not_change') %></i>
+      <%= f.label :password, I18n.t('devise.admin.password'), class: "col-md-2 control-label" %>
+      <i><%= I18n.t('devise.admin.leave_blank_to_not_change') %></i>
 
       <div class="col-sm-4">
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
@@ -24,15 +24,15 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, I18n.t('devise.password_confirmation'), class: "col-md-2 control-label" %>
+      <%= f.label :password_confirmation, I18n.t('devise.admin.password_confirmation'), class: "col-md-2 control-label" %>
       <div class="col-sm-4">
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :current_password, I18n.t('devise.current_password'), class: "col-md-2 control-label" %>
-      <i><%= I18n.t('devise.password_needed_to_confirm') %></i>
+      <%= f.label :current_password, I18n.t('devise.admin.current_password'), class: "col-md-2 control-label" %>
+      <i><%= I18n.t('devise.admin.password_needed_to_confirm') %></i>
 
       <div class="col-sm-4">
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
@@ -41,7 +41,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit I18n.t('devise.update'), class: "btn btn-default" %>
+        <%= f.submit I18n.t('devise.admin.update'), class: "btn btn-default" %>
       </div>
     </div>
 
@@ -53,6 +53,6 @@
 <% end %>
 
 <div class="col-sm-10">
-  <%= button_to I18n.t('devise.cancel_account'), registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %>
+  <%= button_to I18n.t('devise.admin.cancel_account'), registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %>
   <%= link_to I18n.t('navigation.back'), :back %>
 </div>

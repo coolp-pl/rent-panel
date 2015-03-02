@@ -1,5 +1,5 @@
-<p><%= I18n.t('devise.greeting') %> <%= @resource.email %>!</p>
+<p><%= I18n.t('devise.admin.mailer.greeting') %> <%= @resource.email %>!</p>
 
-<p><%= I18n.t('devise.account_locked_due_to_unsuccessful_attempts') %></p>
+<p><%= I18n.t('devise.admin.mailer.account_locked_due_to_unsuccessful_attempts') %></p>
 
-<p><%= link_to I18n.t('devise.click_to_unlock'), unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to I18n.t('devise.admin.mailer.click_to_unlock'), unlock_url(@resource, unlock_token: @token) %></p>
