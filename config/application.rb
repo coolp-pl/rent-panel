@@ -22,5 +22,20 @@ module RentPanel
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.i18n.default_locale = 'pl'
   end
 end
+
+module I18n
+  class JustRaiseExceptionHandler < ExceptionHandler
+    def call(exception, locale, key, options)
+      if exception.is_a?(MissingTranslation)
+        I18n.normalize_keys(locale, key, options[:scope]).join('.')
+      else
+        super
+      end
+    end
+  end
+end
+
+I18n.exception_handler = I18n::JustRaiseExceptionHandler.new
