@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rentables
+
   root 'static#home'
   get 'static/home'
 

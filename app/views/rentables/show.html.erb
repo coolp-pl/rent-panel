@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @rentable.type %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @rentable.city %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @rentable.street %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @rentable.zip %>
+</p>
+
+<p>
+  <strong>Inventory:</strong>
+  <%= @rentable.inventory %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @rentable.admin %>
+</p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @rentable.account_number %>
+</p>
+
+<p>
+  <strong>Transfer address:</strong>
+  <%= @rentable.transfer_address %>
+</p>
+
+<p>
+  <strong>Transfer title:</strong>
+  <%= @rentable.transfer_title %>
+</p>
+
+<%= link_to 'Edit', edit_rentable_path(@rentable) %> |
+<%= link_to 'Back', rentables_path %>

@@ -1,0 +1,53 @@
+<%= form_for(@rentable) do |f| %>
+  <% if @rentable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rentable.errors.count, "error") %> prohibited this rentable from being saved:</h2>
+
+      <ul>
+      <% @rentable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :inventory %><br>
+    <%= f.text_area :inventory %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.text_field :admin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :account_number %><br>
+    <%= f.text_field :account_number %>
+  </div>
+  <div class="field">
+    <%= f.label :transfer_address %><br>
+    <%= f.text_field :transfer_address %>
+  </div>
+  <div class="field">
+    <%= f.label :transfer_title %><br>
+    <%= f.text_field :transfer_title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
