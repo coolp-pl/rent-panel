@@ -11,6 +11,20 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :first_name, I18n.t('devise.user.name'), class: "col-md-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, I18n.t('devise.user.name'), class: "col-md-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.label :password, I18n.t('devise.user.password'), class: "col-md-2 control-label" %>
       <% if @validatable %>
           <em>(<%= @minimum_password_length %> <%= I18n.t('devise.user.characters_minimum') %>)</em>
