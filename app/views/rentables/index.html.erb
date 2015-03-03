@@ -1,43 +1,30 @@
-<p id="notice"><%= notice %></p>
+<h1><%= I18n.t('rentable.listing_all') %></h1>
 
-<h1>Listing Rentables</h1>
-
-<table>
+<table class="table table-bordered table-hover">
   <thead>
-    <tr>
-      <th>Type</th>
-      <th>City</th>
-      <th>Street</th>
-      <th>Zip</th>
-      <th>Inventory</th>
-      <th>Admin</th>
-      <th>Account number</th>
-      <th>Transfer address</th>
-      <th>Transfer title</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th><%= I18n.t('rentable.category') %></th>
+    <th><%= I18n.t('rentable.city') %></th>
+    <th><%= I18n.t('rentable.street') %></th>
+    <th><%= I18n.t('rentable.zip') %></th>
+    <th><%= I18n.t('common.actions') %></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @rentables.each do |rentable| %>
+  <% @rentables.each do |rentable| %>
       <tr>
-        <td><%= rentable.type %></td>
+        <td><%= rentable.category %></td>
         <td><%= rentable.city %></td>
         <td><%= rentable.street %></td>
         <td><%= rentable.zip %></td>
-        <td><%= rentable.inventory %></td>
-        <td><%= rentable.admin %></td>
-        <td><%= rentable.account_number %></td>
-        <td><%= rentable.transfer_address %></td>
-        <td><%= rentable.transfer_title %></td>
-        <td><%= link_to 'Show', rentable %></td>
-        <td><%= link_to 'Edit', edit_rentable_path(rentable) %></td>
-        <td><%= link_to 'Destroy', rentable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to I18n.t('common.edit'), edit_rentable_path(rentable), :class => "btn btn-link" %>
+          <%= link_to I18n.t('common.destroy'), rentable, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-link" %>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Rentable', new_rentable_path %>
+<%= link_to I18n.t('common.new'), new_rentable_path, :class => "btn btn-default btn-lg" %>

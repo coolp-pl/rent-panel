@@ -1,5 +1,6 @@
-<h1>New Rentable</h1>
+<h1><%= I18n.t('rentable.new') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', rentables_path %>
+<%= link_to I18n.t('common.back'), rentables_path %>
+

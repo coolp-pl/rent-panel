@@ -18,7 +18,7 @@ class RentablesControllerTest < ActionController::TestCase
 
   test "should create rentable" do
     assert_difference('Rentable.count') do
-      post :create, rentable: { account_number: @rentable.account_number, admin_id: @rentable.admin_id, city: @rentable.city, inventory: @rentable.inventory, street: @rentable.street, transfer_address: @rentable.transfer_address, transfer_title: @rentable.transfer_title, type: @rentable.type, zip: @rentable.zip }
+      post :create, rentable: { account_number: @rentable.account_number, admin_id: @rentable.admin_id, category: @rentable.category, city: @rentable.city, inventory: @rentable.inventory, street: @rentable.street, transfer_address: @rentable.transfer_address, transfer_title: @rentable.transfer_title, zip: @rentable.zip }
     end
 
     assert_redirected_to rentable_path(assigns(:rentable))
@@ -35,7 +35,7 @@ class RentablesControllerTest < ActionController::TestCase
   end
 
   test "should update rentable" do
-    patch :update, id: @rentable, rentable: { account_number: @rentable.account_number, admin_id: @rentable.admin_id, city: @rentable.city, inventory: @rentable.inventory, street: @rentable.street, transfer_address: @rentable.transfer_address, transfer_title: @rentable.transfer_title, type: @rentable.type, zip: @rentable.zip }
+    patch :update, id: @rentable, rentable: { account_number: @rentable.account_number, admin_id: @rentable.admin_id, category: @rentable.category, city: @rentable.city, inventory: @rentable.inventory, street: @rentable.street, transfer_address: @rentable.transfer_address, transfer_title: @rentable.transfer_title, zip: @rentable.zip }
     assert_redirected_to rentable_path(assigns(:rentable))
   end
 

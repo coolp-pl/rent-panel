@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.inventory-text-area {
+    height: 400px !important;
+}
+
+.inventory-text-area {
+    height: 400px !important;
+}

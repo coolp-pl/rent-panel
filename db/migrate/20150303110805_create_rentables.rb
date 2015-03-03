@@ -1,7 +1,7 @@
 class CreateRentables < ActiveRecord::Migration
   def change
     create_table :rentables do |t|
-      t.integer :type
+      t.integer :category
       t.string :city
       t.string :street
       t.string :zip

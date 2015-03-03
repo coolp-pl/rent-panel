@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303095939) do
+ActiveRecord::Schema.define(version: 20150303110805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150303095939) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "rentables", force: :cascade do |t|
-    t.integer  "type"
+    t.integer  "category"
     t.string   "city"
     t.string   "street"
     t.string   "zip"

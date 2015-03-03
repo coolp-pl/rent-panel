@@ -1,53 +1,80 @@
-<%= form_for(@rentable) do |f| %>
-  <% if @rentable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rentable.errors.count, "error") %> prohibited this rentable from being saved:</h2>
+<%= form_for(@rentable, :html => {:class => "form-horizontal schedule-form"}) do |f| %>
+    <% if @rentable.errors.any? %>
+        <div id="error_explanation">
+          <% @rentable.errors.full_messages.each do |message| %>
+              <div class="alert alert-danger" role="alert"><%= message %></div>
+          <% end %>
+        </div>
+    <% end %>
 
-      <ul>
-      <% @rentable.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <%= f.label :category, I18n.t('rentables.category'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.select :category, options_for_select(Rentable.categories.map { |s| [I18n.t('rentables.category.'+s[0]), s[0]] }, :selected => @rentable.category), {include_blank: true}, {:class => "form-control"} %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.number_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br>
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :inventory %><br>
-    <%= f.text_area :inventory %>
-  </div>
-  <div class="field">
-    <%= f.label :admin_id %><br>
-    <%= f.text_field :admin_id %>
-  </div>
-  <div class="field">
-    <%= f.label :account_number %><br>
-    <%= f.text_field :account_number %>
-  </div>
-  <div class="field">
-    <%= f.label :transfer_address %><br>
-    <%= f.text_field :transfer_address %>
-  </div>
-  <div class="field">
-    <%= f.label :transfer_title %><br>
-    <%= f.text_field :transfer_title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :city, I18n.t('rentables.city'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.text_field :city, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :street, I18n.t('rentables.street'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.text_field :street, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :zip, I18n.t('rentables.zip'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.text_field :zip, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :admin_id, I18n.t('rentables.admin'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.select :admin_id, options_for_select(Admin.all.map { |s| [s.last_name + ' ' +s.first_name, s.id] }), {}, {:class => "form-control"} %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :account_number, I18n.t('rentables.account_number'), class: "col-md-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_field :account_number, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :transfer_address, I18n.t('rentables.transfer_address'), class: "col-md-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_field :transfer_address, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :transfer_title, I18n.t('rentables.transfer_title'), class: "col-md-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_field :transfer_title, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :inventory, I18n.t('rentables.inventory'), class: "col-md-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_area :inventory, class: "form-control inventory-text-area" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-5">
+        <div class="actions">
+          <%= f.submit I18n.t('common.save'), class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
 <% end %>
