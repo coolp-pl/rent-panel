@@ -18,7 +18,7 @@ class InvoicesControllerTest < ActionController::TestCase
 
   test "should create invoice" do
     assert_difference('Invoice.count') do
-      post :create, invoice: { cold_water_price: @invoice.cold_water_price, cold_water_usage: @invoice.cold_water_usage, due: @invoice.due, heating: @invoice.heating, hot_water_price: @invoice.hot_water_price, hot_water_usage: @invoice.hot_water_usage, other_name: @invoice.other_name, other_sum: @invoice.other_sum, paid: @invoice.paid, power: @invoice.power, power_price: @invoice.power_price, power_usage: @invoice.power_usage, rent: @invoice.rent, rentable_id: @invoice.rentable_id, trash: @invoice.trash, upkeep: @invoice.upkeep, user_id: @invoice.user_id, water: @invoice.water }
+      post :create, invoice: { due: @invoice.due, paid: @invoice.paid, rentable_id: @invoice.rentable_id }
     end
 
     assert_redirected_to invoice_path(assigns(:invoice))
@@ -35,7 +35,7 @@ class InvoicesControllerTest < ActionController::TestCase
   end
 
   test "should update invoice" do
-    patch :update, id: @invoice, invoice: { cold_water_price: @invoice.cold_water_price, cold_water_usage: @invoice.cold_water_usage, due: @invoice.due, heating: @invoice.heating, hot_water_price: @invoice.hot_water_price, hot_water_usage: @invoice.hot_water_usage, other_name: @invoice.other_name, other_sum: @invoice.other_sum, paid: @invoice.paid, power: @invoice.power, power_price: @invoice.power_price, power_usage: @invoice.power_usage, rent: @invoice.rent, rentable_id: @invoice.rentable_id, trash: @invoice.trash, upkeep: @invoice.upkeep, user_id: @invoice.user_id, water: @invoice.water }
+    patch :update, id: @invoice, invoice: { due: @invoice.due, paid: @invoice.paid, rentable_id: @invoice.rentable_id }
     assert_redirected_to invoice_path(assigns(:invoice))
   end
 

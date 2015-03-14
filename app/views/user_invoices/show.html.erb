@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @user_invoice.invoice %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_invoice.user %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @user_invoice.rent %>
+</p>
+
+<p>
+  <strong>Trash:</strong>
+  <%= @user_invoice.trash %>
+</p>
+
+<p>
+  <strong>Heating:</strong>
+  <%= @user_invoice.heating %>
+</p>
+
+<p>
+  <strong>Upkeep:</strong>
+  <%= @user_invoice.upkeep %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @user_invoice.power %>
+</p>
+
+<p>
+  <strong>Power price:</strong>
+  <%= @user_invoice.power_price %>
+</p>
+
+<p>
+  <strong>Power usage:</strong>
+  <%= @user_invoice.power_usage %>
+</p>
+
+<p>
+  <strong>Water:</strong>
+  <%= @user_invoice.water %>
+</p>
+
+<p>
+  <strong>Hot water price:</strong>
+  <%= @user_invoice.hot_water_price %>
+</p>
+
+<p>
+  <strong>Hot water usage:</strong>
+  <%= @user_invoice.hot_water_usage %>
+</p>
+
+<p>
+  <strong>Cold water price:</strong>
+  <%= @user_invoice.cold_water_price %>
+</p>
+
+<p>
+  <strong>Cold water usage:</strong>
+  <%= @user_invoice.cold_water_usage %>
+</p>
+
+<p>
+  <strong>Other name:</strong>
+  <%= @user_invoice.other_name %>
+</p>
+
+<p>
+  <strong>Other sum:</strong>
+  <%= @user_invoice.other_sum %>
+</p>
+
+<%= link_to 'Edit', edit_user_invoice_path(@user_invoice) %> |
+<%= link_to 'Back', user_invoices_path %>

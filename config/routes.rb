@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_invoices
+
   resources :invoices
 
   resources :rentables

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice</th>
+      <th>User</th>
+      <th>Rent</th>
+      <th>Trash</th>
+      <th>Heating</th>
+      <th>Upkeep</th>
+      <th>Power</th>
+      <th>Power price</th>
+      <th>Power usage</th>
+      <th>Water</th>
+      <th>Hot water price</th>
+      <th>Hot water usage</th>
+      <th>Cold water price</th>
+      <th>Cold water usage</th>
+      <th>Other name</th>
+      <th>Other sum</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_invoices.each do |user_invoice| %>
+      <tr>
+        <td><%= user_invoice.invoice %></td>
+        <td><%= user_invoice.user %></td>
+        <td><%= user_invoice.rent %></td>
+        <td><%= user_invoice.trash %></td>
+        <td><%= user_invoice.heating %></td>
+        <td><%= user_invoice.upkeep %></td>
+        <td><%= user_invoice.power %></td>
+        <td><%= user_invoice.power_price %></td>
+        <td><%= user_invoice.power_usage %></td>
+        <td><%= user_invoice.water %></td>
+        <td><%= user_invoice.hot_water_price %></td>
+        <td><%= user_invoice.hot_water_usage %></td>
+        <td><%= user_invoice.cold_water_price %></td>
+        <td><%= user_invoice.cold_water_usage %></td>
+        <td><%= user_invoice.other_name %></td>
+        <td><%= user_invoice.other_sum %></td>
+        <td><%= link_to 'Show', user_invoice %></td>
+        <td><%= link_to 'Edit', edit_user_invoice_path(user_invoice) %></td>
+        <td><%= link_to 'Destroy', user_invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User invoice', new_user_invoice_path %>

@@ -1,10 +1,8 @@
-class CreateInvoices < ActiveRecord::Migration
+class CreateUserInvoices < ActiveRecord::Migration
   def change
-    create_table :invoices do |t|
-      t.references :rentable, index: true
+    create_table :user_invoices do |t|
+      t.references :invoice, index: true
       t.references :user, index: true
-      t.date :due
-      t.boolean :paid
       t.decimal :rent
       t.decimal :trash
       t.decimal :heating
@@ -22,7 +20,7 @@ class CreateInvoices < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :invoices, :rentables
-    add_foreign_key :invoices, :users
+    add_foreign_key :user_invoices, :invoices
+    add_foreign_key :user_invoices, :users
   end
 end

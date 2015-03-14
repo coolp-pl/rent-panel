@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314160326) do
+ActiveRecord::Schema.define(version: 20150314162851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,33 @@ ActiveRecord::Schema.define(version: 20150314160326) do
 
   create_table "invoices", force: :cascade do |t|
     t.integer  "rentable_id"
-    t.integer  "user_id"
     t.date     "due"
     t.boolean  "paid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "invoices", ["rentable_id"], name: "index_invoices_on_rentable_id", using: :btree
+
+  create_table "rentables", force: :cascade do |t|
+    t.integer  "category"
+    t.string   "city"
+    t.string   "street"
+    t.string   "zip"
+    t.text     "inventory"
+    t.integer  "admin_id"
+    t.string   "account_number"
+    t.string   "transfer_address"
+    t.string   "transfer_title"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "rentables", ["admin_id"], name: "index_rentables_on_admin_id", using: :btree
+
+  create_table "user_invoices", force: :cascade do |t|
+    t.integer  "invoice_id"
+    t.integer  "user_id"
     t.decimal  "rent"
     t.decimal  "trash"
     t.decimal  "heating"
@@ -59,24 +83,8 @@ ActiveRecord::Schema.define(version: 20150314160326) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "invoices", ["rentable_id"], name: "index_invoices_on_rentable_id", using: :btree
-  add_index "invoices", ["user_id"], name: "index_invoices_on_user_id", using: :btree
-
-  create_table "rentables", force: :cascade do |t|
-    t.integer  "category"
-    t.string   "city"
-    t.string   "street"
-    t.string   "zip"
-    t.text     "inventory"
-    t.integer  "admin_id"
-    t.string   "account_number"
-    t.string   "transfer_address"
-    t.string   "transfer_title"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "rentables", ["admin_id"], name: "index_rentables_on_admin_id", using: :btree
+  add_index "user_invoices", ["invoice_id"], name: "index_user_invoices_on_invoice_id", using: :btree
+  add_index "user_invoices", ["user_id"], name: "index_user_invoices_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -101,7 +109,8 @@ ActiveRecord::Schema.define(version: 20150314160326) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "invoices", "rentables"
-  add_foreign_key "invoices", "users"
   add_foreign_key "rentables", "admins"
+  add_foreign_key "user_invoices", "invoices"
+  add_foreign_key "user_invoices", "users"
   add_foreign_key "users", "rentables"
 end

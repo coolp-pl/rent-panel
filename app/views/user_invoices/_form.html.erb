@@ -1,0 +1,81 @@
+<%= form_for(@user_invoice) do |f| %>
+  <% if @user_invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_invoice.errors.count, "error") %> prohibited this user_invoice from being saved:</h2>
+
+      <ul>
+      <% @user_invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :invoice_id %><br>
+    <%= f.text_field :invoice_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rent %><br>
+    <%= f.text_field :rent %>
+  </div>
+  <div class="field">
+    <%= f.label :trash %><br>
+    <%= f.text_field :trash %>
+  </div>
+  <div class="field">
+    <%= f.label :heating %><br>
+    <%= f.text_field :heating %>
+  </div>
+  <div class="field">
+    <%= f.label :upkeep %><br>
+    <%= f.text_field :upkeep %>
+  </div>
+  <div class="field">
+    <%= f.label :power %><br>
+    <%= f.text_field :power %>
+  </div>
+  <div class="field">
+    <%= f.label :power_price %><br>
+    <%= f.text_field :power_price %>
+  </div>
+  <div class="field">
+    <%= f.label :power_usage %><br>
+    <%= f.text_field :power_usage %>
+  </div>
+  <div class="field">
+    <%= f.label :water %><br>
+    <%= f.text_field :water %>
+  </div>
+  <div class="field">
+    <%= f.label :hot_water_price %><br>
+    <%= f.text_field :hot_water_price %>
+  </div>
+  <div class="field">
+    <%= f.label :hot_water_usage %><br>
+    <%= f.text_field :hot_water_usage %>
+  </div>
+  <div class="field">
+    <%= f.label :cold_water_price %><br>
+    <%= f.text_field :cold_water_price %>
+  </div>
+  <div class="field">
+    <%= f.label :cold_water_usage %><br>
+    <%= f.text_field :cold_water_usage %>
+  </div>
+  <div class="field">
+    <%= f.label :other_name %><br>
+    <%= f.text_field :other_name %>
+  </div>
+  <div class="field">
+    <%= f.label :other_sum %><br>
+    <%= f.text_field :other_sum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
