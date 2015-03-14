@@ -1,4 +1,6 @@
 <%= form_for(@user, :html => {:class => "form-horizontal schedule-form"}) do |f| %>
+    <% debug @user %>
+
     <% if @user.errors.any? %>
         <div id="error_explanation">
           <% @user.errors.full_messages.each do |message| %>
@@ -30,8 +32,8 @@
 
     <div class="form-group">
       <%= f.label :rentable_id, I18n.t('devise.user.rentable'), class: "col-md-2 control-label" %>
-      <div class="col-sm-4">
-        <%= f.text_field :rentable_id, class: "form-control" %>
+      <div class="col-sm-3">
+        <%= f.select :rentable_id, options_for_select(Rentable.all.map { |s| [s.city + ' ' +s.street, s.id] }, :selected => @user.rentable_id), {include_blank: true}, {:class => "form-control"} %>
       </div>
     </div>
 
