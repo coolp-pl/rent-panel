@@ -1,5 +1,6 @@
 class RentablesController < ApplicationController
   before_action :set_rentable, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   # GET /rentables
   # GET /rentables.json
