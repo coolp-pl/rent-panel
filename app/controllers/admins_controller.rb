@@ -41,6 +41,10 @@ class AdminsController < ApplicationController
   # PATCH/PUT /admins/1.json
   def update
     respond_to do |format|
+      if params[:admin][:password].blank?
+        params[:admin].delete(:password)
+        params[:admin].delete(:password_confirmation)
+      end
       if @admin.update(admin_params)
         format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
       else
