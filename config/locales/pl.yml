@@ -21,3 +21,8 @@
 
 pl:
   hello: "pl"
+  date:
+    order:
+      - :day
+      - :month
+      - :year

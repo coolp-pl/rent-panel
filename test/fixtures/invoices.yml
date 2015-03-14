@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rentable_id: 
+  user_id: 
+  due: 2015-03-14
+  paid: false
+  rent: 9.99
+  trash: 9.99
+  heating: 9.99
+  upkeep: 9.99
+  power: 9.99
+  power_price: 9.99
+  power_usage: 1.5
+  water: 9.99
+  hot_water_price: 9.99
+  hot_water_usage: 1.5
+  cold_water_price: 9.99
+  cold_water_usage: 1.5
+  other_name: MyString
+  other_sum: 9.99
+
+two:
+  rentable_id: 
+  user_id: 
+  due: 2015-03-14
+  paid: false
+  rent: 9.99
+  trash: 9.99
+  heating: 9.99
+  upkeep: 9.99
+  power: 9.99
+  power_price: 9.99
+  power_usage: 1.5
+  water: 9.99
+  hot_water_price: 9.99
+  hot_water_usage: 1.5
+  cold_water_price: 9.99
+  cold_water_usage: 1.5
+  other_name: MyString
+  other_sum: 9.99
