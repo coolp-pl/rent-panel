@@ -1,29 +1,38 @@
-<%= form_for(@invoice) do |f| %>
-  <% if @invoice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+<%= form_for(@invoice, :html => {:class => "form-horizontal schedule-form"}) do |f| %>
+    <% if @invoice.errors.any? %>
+        <div id="error_explanation">
+          <% @invoice.errors.full_messages.each do |message| %>
+              <div class="alert alert-danger" role="alert"><%= message %></div>
+          <% end %>
+        </div>
+    <% end %>
 
-      <ul>
-      <% @invoice.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <%= f.label :rentable_id, I18n.t('devise.invoice.rentable'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.select :rentable_id, options_for_select(Rentable.all.map { |s| [s.city + ' ' +s.street, s.id] }, :selected => @invoice.rentable_id), {include_blank: true}, {:class => "form-control"} %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :rentable_id %><br>
-    <%= f.text_field :rentable_id %>
-  </div>
-  <div class="field">
-    <%= f.label :due %><br>
-    <%= f.date_select :due %>
-  </div>
-  <div class="field">
-    <%= f.label :paid %><br>
-    <%= f.check_box :paid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :due, I18n.t('devise.invoice.due'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.date_select :due, {:class => "form-control"} %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :paid, I18n.t('devise.invoice.paid'), class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.check_box :paid, {:class => "form-control"} %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-5">
+        <div class="actions">
+          <%= f.submit I18n.t('common.save'), class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
 <% end %>

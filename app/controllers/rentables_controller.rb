@@ -30,7 +30,7 @@ class RentablesController < ApplicationController
 
     respond_to do |format|
       if @rentable.save
-        format.html { redirect_to @rentable, notice: 'Rentable was successfully created.' }
+        format.html { redirect_to @rentable, notice: 'Rentable was successfully created.' }#todo
         format.json { render :show, status: :created, location: @rentable }
       else
         format.html { render :new }

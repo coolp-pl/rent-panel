@@ -10,6 +10,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    render :edit
   end
 
   # GET /invoices/new
@@ -28,7 +29,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }#todo
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }
