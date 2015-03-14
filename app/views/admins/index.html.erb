@@ -1,0 +1,28 @@
+<h1><%= I18n.t('admin.listing_all') %></h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= I18n.t('admin.email') %></th>
+    <th><%= I18n.t('admin.first_name') %></th>
+    <th><%= I18n.t('admin.last_name') %></th>
+    <th><%= I18n.t('common.actions') %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.email %></td>
+        <td><%= admin.first_name %></td>
+        <td><%= admin.last_name %></td>
+        <td>
+          <%= link_to I18n.t('common.edit'), edit_admin_path(admin), :class => "btn btn-link" %>
+          <%= link_to I18n.t('common.destroy'), admin, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-link" %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to I18n.t('admin.new'), new_admin_path, :class => "btn btn-default btn-lg" %>

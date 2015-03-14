@@ -4,6 +4,8 @@
   <thead>
   <tr>
     <th><%= I18n.t('user.email') %></th>
+    <th><%= I18n.t('user.first_name') %></th>
+    <th><%= I18n.t('user.last_name') %></th>
     <th><%= I18n.t('common.actions') %></th>
   </tr>
   </thead>
@@ -12,7 +14,10 @@
   <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
         <td>
+          <%= link_to I18n.t('common.edit'), edit_user_path(user), :class => "btn btn-link" %>
           <%= link_to I18n.t('common.destroy'), user, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-link" %>
         </td>
       </tr>
