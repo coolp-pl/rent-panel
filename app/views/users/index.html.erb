@@ -1,0 +1,23 @@
+<h1><%= I18n.t('user.listing_all') %></h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= I18n.t('user.email') %></th>
+    <th><%= I18n.t('common.actions') %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to I18n.t('common.destroy'), user, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-link" %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to I18n.t('user.new'), new_user_path, :class => "btn btn-default btn-lg" %>

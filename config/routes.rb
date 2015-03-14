@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root 'static#home'
   get 'static/home'
 
+  scope "/admins" do
+    resources :users
+    resources :admins
+  end
+
   devise_for :admins
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
