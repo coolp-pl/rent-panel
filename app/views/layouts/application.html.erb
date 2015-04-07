@@ -20,6 +20,8 @@
           <li><%= link_to I18n.t('devise.user.log_out'), destroy_session_path(@current_user), :method => :delete, class: "btn btn-default" %></li>
       <% end %>
       <% if @current_admin %>
+          <li><%= link_to I18n.t('navigation.user_invoices_debug'), user_invoices_path, class: "btn btn-link" %></li>
+          <li><%= link_to I18n.t('navigation.invoices'), invoices_path, class: "btn btn-link" %></li>
           <li><%= link_to I18n.t('navigation.users'), users_path, class: "btn btn-link" %></li>
           <li><%= link_to I18n.t('navigation.admins'), admins_path, class: "btn btn-link" %></li>
           <li><%= link_to I18n.t('navigation.rentables'), rentables_path, class: "btn btn-link" %></li>

@@ -36,45 +36,56 @@
       </div>
     </div>
 
-
     <table class="table table-bordered table-hover">
       <thead>
       <tr>
-        <th><%= I18n.t('invoice.categories') %></th>
-        <% @invoice.rentable.users.each do |user| %>
-            <th><%= user.full_name %></th>
-        <% end %>
+        <th></th>
+        <th><%= I18n.t('user_invoice.rent') %></th>
+        <th><%= I18n.t('user_invoice.power') %></th>
+        <th><%= I18n.t('user_invoice.water') %></th>
+        <th><%= I18n.t('user_invoice.trash') %></th>
+        <th><%= I18n.t('user_invoice.heating') %></th>
+        <th><%= I18n.t('user_invoice.upkeep') %></th>
+        <th><%= I18n.t('user_invoice.other') %></th>
+        <th><%= I18n.t('invoice.sum') %></th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td><%= I18n.t('user_invoice.rent') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('user_invoice.power') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('user_invoice.water') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('user_invoice.trash') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('user_invoice.heating') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('user_invoice.upkeep') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('user_invoice.other') %></td>
-      </tr>
-      <tr>
-        <td><%= I18n.t('invoice.sum') %></td>
-      </tr>
+      <%= f.fields_for :user_invoices do |ui| %>
+          <% if ui.object.errors.any? %>
+              <div id="error_explanation">
+                <% ui.object.errors.full_messages.each do |message| %>
+                    <div class="alert alert-danger" role="alert"><%= message %></div>
+                <% end %>
+              </div>
+          <% end %>
+          <tr>
+            <td><%= ui.object.user.full_name %></td>
+            <td><%= ui.text_field :rent, class: "form-control" %></td>
+            <td><%= ui.text_field :power, class: "form-control" %></td>
+            <td><%= ui.text_field :water, class: "form-control" %></td>
+            <td><%= ui.text_field :trash, class: "form-control" %></td>
+            <td><%= ui.text_field :heating, class: "form-control" %></td>
+            <td><%= ui.text_field :upkeep, class: "form-control" %></td>
+            <td><%= ui.text_field :other_sum, class: "form-control" %></td>
+            <td><%= text_field_tag 'sum_' + ui.object.id.to_s, nil, class: "form-control invoice-sum" %></td>
+          </tr>
+          <tr style="display: none">
+            <td><%= ui.text_field :id, class: "form-control" %></td>
+            <td><%= ui.text_field :user_id, class: "form-control" %></td>
+            <td><%= ui.text_field :power_price, class: "form-control" %></td>
+            <td><%= ui.text_field :power_usage, class: "form-control" %></td>
+            <td><%= ui.text_field :hot_water_price, class: "form-control" %></td>
+            <td><%= ui.text_field :hot_water_usage, class: "form-control" %></td>
+            <td><%= ui.text_field :cold_water_price, class: "form-control" %></td>
+            <td><%= ui.text_field :hot_water_usage, class: "form-control" %></td>
+            <td><%= ui.text_field :other_name, class: "form-control" %></td>
+          </tr>
+      <% end %>
       </tbody>
     </table>
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="width: 200px">
       <thead>
       <tr>
         <th><%= I18n.t('invoice.media') %></th>
@@ -85,12 +96,18 @@
       <tbody>
       <tr>
         <td><%= I18n.t('invoice.power') %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control power-usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control power-price" %></td>
       </tr>
       <tr>
         <td><%= I18n.t('invoice.cold_water') %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control cold_water-usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control cold_water-price" %></td>
       </tr>
       <tr>
         <td><%= I18n.t('invoice.hot_water') %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control hot_water-usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control hot_water-price" %></td>
       </tr>
       </tbody>
     </table>

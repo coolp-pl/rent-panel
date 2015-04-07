@@ -29,7 +29,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }#todo
+        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' } #todo
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }
@@ -63,13 +63,15 @@ class InvoicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_invoice
-      @invoice = Invoice.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_invoice
+    @invoice = Invoice.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def invoice_params
-      params.require(:invoice).permit(:rentable_id, :due, :paid)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def invoice_params
+    params.require(:invoice).permit(:rentable_id, :due, :paid,
+                                    user_invoices_attributes: [:id, :invoice_id, :user_id, :rent, :trash, :heating, :upkeep, :power, :power_price, :power_usage, :water, :hot_water_price, :hot_water_usage, :cold_water_price, :cold_water_usage, :other_name, :other_sum]
+    )
+  end
 end
