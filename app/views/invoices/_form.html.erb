@@ -59,27 +59,29 @@
                 <% end %>
               </div>
           <% end %>
-          <tr>
+          <tr class="summable-row">
             <td><%= ui.object.user.full_name %></td>
-            <td><%= ui.text_field :rent, class: "form-control" %></td>
-            <td><%= ui.text_field :power, class: "form-control" %></td>
-            <td><%= ui.text_field :water, class: "form-control" %></td>
-            <td><%= ui.text_field :trash, class: "form-control" %></td>
-            <td><%= ui.text_field :heating, class: "form-control" %></td>
-            <td><%= ui.text_field :upkeep, class: "form-control" %></td>
-            <td><%= ui.text_field :other_sum, class: "form-control" %></td>
+            <td><%= ui.text_field :rent, class: "form-control rent sum-contributor" %></td>
+            <td><%= ui.text_field :power, class: "form-control power sum-contributor" %></td>
+            <td><%= ui.text_field :water, class: "form-control water sum-contributor" %></td>
+            <td><%= ui.text_field :trash, class: "form-control trash sum-contributor" %></td>
+            <td><%= ui.text_field :heating, class: "form-control heating sum-contributor" %></td>
+            <td><%= ui.text_field :upkeep, class: "form-control upkeep sum-contributor" %></td>
+            <td><%= ui.text_field :other_sum, class: "form-control other_sum sum-contributor" %></td>
             <td><%= text_field_tag 'sum_' + ui.object.id.to_s, nil, class: "form-control invoice-sum" %></td>
-          </tr>
-          <tr style="display: none">
-            <td><%= ui.text_field :id, class: "form-control" %></td>
-            <td><%= ui.text_field :user_id, class: "form-control" %></td>
-            <td><%= ui.text_field :power_price, class: "form-control" %></td>
-            <td><%= ui.text_field :power_usage, class: "form-control" %></td>
-            <td><%= ui.text_field :hot_water_price, class: "form-control" %></td>
-            <td><%= ui.text_field :hot_water_usage, class: "form-control" %></td>
-            <td><%= ui.text_field :cold_water_price, class: "form-control" %></td>
-            <td><%= ui.text_field :hot_water_usage, class: "form-control" %></td>
-            <td><%= ui.text_field :other_name, class: "form-control" %></td>
+
+            <td><%= text_field_tag nil, nil, class: "hidden form-control sum-contributor hot_water" %></td>
+            <td><%= text_field_tag nil, nil, class: "hidden form-control sum-contributor cold_water" %></td>
+
+            <td><%= ui.text_field :id, class: "hidden form-control" %></td>
+            <td><%= ui.text_field :user_id, class: "hidden form-control" %></td>
+            <td><%= ui.text_field :power_price, class: "hidden form-control power-contributor power_price" %></td>
+            <td><%= ui.text_field :power_usage, class: "hidden form-control power-contributor power_usage" %></td>
+            <td><%= ui.text_field :hot_water_price, class: "hidden form-control hot_water-contributor hot_water_price" %></td>
+            <td><%= ui.text_field :hot_water_usage, class: "hidden form-control hot_water-contributor hot_water_usage" %></td>
+            <td><%= ui.text_field :cold_water_price, class: "hidden form-control cold_water-contributor cold_water_price" %></td>
+            <td><%= ui.text_field :cold_water_usage, class: "hidden form-control cold_water-contributor cold_water_usage" %></td>
+            <td><%= ui.text_field :other_name, class: "hidden form-control" %></td>
           </tr>
       <% end %>
       </tbody>
@@ -96,19 +98,89 @@
       <tbody>
       <tr>
         <td><%= I18n.t('invoice.power') %></td>
-        <td><%= text_field_tag nil, nil, class: "form-control power-usage" %></td>
-        <td><%= text_field_tag nil, nil, class: "form-control power-price" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control power_usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control power_price" %></td>
       </tr>
       <tr>
         <td><%= I18n.t('invoice.cold_water') %></td>
-        <td><%= text_field_tag nil, nil, class: "form-control cold_water-usage" %></td>
-        <td><%= text_field_tag nil, nil, class: "form-control cold_water-price" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control cold_water_usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control cold_water_price" %></td>
       </tr>
       <tr>
         <td><%= I18n.t('invoice.hot_water') %></td>
-        <td><%= text_field_tag nil, nil, class: "form-control hot_water-usage" %></td>
-        <td><%= text_field_tag nil, nil, class: "form-control hot_water-price" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control hot_water_usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control hot_water_price" %></td>
       </tr>
       </tbody>
     </table>
 <% end %>
+<script>
+    function synchronizedFields(element) {
+        $(element).val($(element).val());
+        $(element).change(function (event) {
+            var newValue = $(event.target).val();
+            $(element).each(function (i, el) {
+                var input = $(el);
+                if (input.val() != newValue) {
+                    input.val(newValue);
+                    input.trigger('change');
+                }
+            });
+        })
+    }
+
+    function sumupContainer(container) {
+        var inputs = container.find('.sum-contributor');
+        var sum = container.find(".invoice-sum");
+        var total = 0;
+        inputs.each(function (i, field) {
+            total += parseFloat($(field).val())
+            console.log(field, parseFloat($(field).val()))
+        });
+        sum.val(total);
+    }
+
+    function multiplyForContainer(container, name) {
+        var inputs = container.find(name + '-contributor');
+        var output = container.find(name);
+        var total = 1;
+        inputs.each(function (i, field) {
+            total *= parseFloat($(field).val())
+        });
+        if (output.val() != total) {
+            output.val(total);
+            output.attr('value', total);
+            output.trigger('change')
+        }
+    }
+
+    function applyMultiplyingLogic(name) {
+        $(name + '-contributor').change(function (event) {
+            var container = $(event.target).closest('tr');
+            multiplyForContainer(container, name);
+        });
+    }
+
+    $('.sum-contributor').change(function (event) {
+        var container = $(event.target).closest('tr');
+        sumupContainer(container);
+    });
+
+    synchronizedFields('.power_usage');
+    synchronizedFields('.power_price');
+    synchronizedFields('.cold_water_usage');
+    synchronizedFields('.cold_water_price');
+    synchronizedFields('.hot_water_usage');
+    synchronizedFields('.hot_water_price');
+
+    applyMultiplyingLogic('.power');
+    applyMultiplyingLogic('.hot_water');
+    applyMultiplyingLogic('.cold_water');
+
+    $('.summable-row').each(function (i, row) {
+        sumupContainer($(row));
+        multiplyForContainer($(row), '.power');
+        multiplyForContainer($(row), '.hot_water');
+        multiplyForContainer($(row), '.cold_water');
+    });
+</script>
