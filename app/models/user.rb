@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :rentable
+
+  def full_name
+    last_name+' '+first_name
+  end
 end

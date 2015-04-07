@@ -8,21 +8,21 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :rentable_id, I18n.t('devise.invoice.rentable'), class: "col-md-2 control-label" %>
+      <%= f.label :rentable_id, I18n.t('invoice.rentable'), class: "col-md-2 control-label" %>
       <div class="col-sm-3">
         <%= f.select :rentable_id, options_for_select(Rentable.all.map { |s| [s.city + ' ' +s.street, s.id] }, :selected => @invoice.rentable_id), {include_blank: true}, {:class => "form-control"} %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :due, I18n.t('devise.invoice.due'), class: "col-md-2 control-label" %>
+      <%= f.label :due, I18n.t('invoice.due'), class: "col-md-2 control-label" %>
       <div class="col-sm-3">
         <%= f.date_select :due, {:class => "form-control"} %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :paid, I18n.t('devise.invoice.paid'), class: "col-md-2 control-label" %>
+      <%= f.label :paid, I18n.t('invoice.paid'), class: "col-md-2 control-label" %>
       <div class="col-sm-3">
         <%= f.check_box :paid, {:class => "form-control"} %>
       </div>
@@ -35,4 +35,63 @@
         </div>
       </div>
     </div>
+
+
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th><%= I18n.t('invoice.categories') %></th>
+        <% @invoice.rentable.users.each do |user| %>
+            <th><%= user.full_name %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= I18n.t('user_invoice.rent') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('user_invoice.power') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('user_invoice.water') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('user_invoice.trash') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('user_invoice.heating') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('user_invoice.upkeep') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('user_invoice.other') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('invoice.sum') %></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th><%= I18n.t('invoice.media') %></th>
+        <th><%= I18n.t('invoice.usage') %></th>
+        <th><%= I18n.t('invoice.price') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= I18n.t('invoice.power') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('invoice.cold_water') %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('invoice.hot_water') %></td>
+      </tr>
+      </tbody>
+    </table>
 <% end %>
