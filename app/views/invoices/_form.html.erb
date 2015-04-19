@@ -96,6 +96,16 @@
             <td class="not-hidden"><%= ui.text_field :other_name, class: "form-control" %></td>
           </tr>
       <% end %>
+      <tr class="summable-row">
+        <td><%= I18n.t('invoice.for_all') %></td>
+        <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "rent"} %></td>
+        <td></td>
+        <td></td>
+        <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "trash"} %></td>
+        <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "heating"} %></td>
+        <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "upkeep"} %></td>
+        <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "other_sum"} %></td>
+      </tr>
       </tbody>
     </table>
 
@@ -147,7 +157,6 @@
         var total = 0;
         inputs.each(function (i, field) {
             total += parseFloat($(field).val())
-            console.log(field, parseFloat($(field).val()))
         });
         sum.val(total);
     }
@@ -175,6 +184,13 @@
 
 
     $(document).ready(function () {
+        $('.field-default').change(function (event) {
+            var defaultField = $(event.target);
+            var refClass = defaultField.attr('data-ref');
+            var updated = $('.' + refClass);
+            updated.val(defaultField.val());
+            updated.trigger('change');
+        });
 
         $('.sum-contributor').change(function (event) {
             var container = $(event.target).closest('tr');
