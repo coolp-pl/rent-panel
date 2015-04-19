@@ -146,6 +146,7 @@
                 if (input.val() != newValue) {
                     input.val(newValue);
                     input.trigger('change');
+                    input.effect('highlight', 'slow', 2000);
                 }
             });
         })
@@ -159,6 +160,7 @@
             total += parseFloat($(field).val())
         });
         sum.val(total);
+        sum.effect('highlight', 'slow', 2000);
     }
 
     function multiplyForContainer(container, name) {
@@ -171,7 +173,8 @@
         if (output.val() != total) {
             output.val(total);
             output.attr('value', total);
-            output.trigger('change')
+            output.trigger('change');
+            output.effect('highlight', 'slow', 2000);
         }
     }
 
