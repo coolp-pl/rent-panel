@@ -4,7 +4,19 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    defaults = {:filter => {:rentable_id => nil, :include_paid => 1, :include_non_paid => 1},
+                :date => {:month => Date.today.month, :year => Date.today.year}}
+    params.replace(defaults.merge(params))
+
+    queryParams = {}
+    if params[:filter][:include_paid] != params[:filter][:include_non_paid]
+      queryParams[:paid]=params[:filter][:include_paid].to_i == 1 ? TRUE : FALSE
+    end
+    if params[:filter][:rentable_id].to_i != 0
+      queryParams[:rentable_id]=params[:filter][:rentable_id].to_i
+    end
+
+    @invoices = Invoice.where(queryParams).where('extract(month from due) = ? AND extract(year from due) = ?', params[:date][:month], params[:date][:year])
   end
 
   # GET /invoices/1

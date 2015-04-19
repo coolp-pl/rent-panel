@@ -1,4 +1,43 @@
 <h1><%= I18n.t('invoice.listing_all') %></h1>
+<%= form_tag invoices_path, :method => 'get', :class => "schedule-form" do %>
+
+    <div class="form-group col-sm-3">
+      <%= label :Search, "Search", class: "control-label" %>
+      <div class="">
+        <%= submit_tag I18n.t('common.search'), :name => nil, :class => "btn" %>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= label :rentable_id, I18n.t('invoice.filter_rentable'), class: "control-label" %>
+      <div class="">
+        <%= select("filter", :rentable_id, Rentable.all.collect { |s| [s.city + ' ' +s.street, s.id] }, {include_blank: 'None', :selected => params[:filter][:rentable_id]}, {:class => "form-control"}) %>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= label :due, I18n.t('invoice.filter_due'), class: "control-label" %>
+      <div class="">
+        <% date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, 1) %>
+        <%= select_month date, {:use_month_names => [I18n.t('month.jan'), I18n.t('month.feb'), I18n.t('month.mar'), I18n.t('month.apr'), I18n.t('month.may'), I18n.t('month.jun'), I18n.t('month.jul'), I18n.t('month.aug'), I18n.t('month.sep'), I18n.t('month.oct'), I18n.t('month.nov'), I18n.t('month.dec')]}, :html_options => {:class => "form-control"} %>
+        <%= select_year date, {}, :html_options => {:class => "form-control"} %>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-1">
+      <%= label :include_paid, I18n.t('invoice.include_paid'), class: "control-label" %>
+      <div class="">
+        <%= check_box "filter", :include_paid, {:class => "form-control", :checked => params[:filter][:include_paid]=="1"} %>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-1">
+      <%= label :include_non_paid, I18n.t('invoice.include_non_paid'), class: "control-label" %>
+      <div class="">
+        <%= check_box "filter", :include_non_paid, {:class => "form-control", :checked => params[:filter][:include_non_paid]=="1"} %>
+      </div>
+    </div>
+<% end %>
 
 <table class="table table-bordered table-hover">
   <thead>
@@ -26,3 +65,10 @@
 </table>
 
 <%= link_to I18n.t('common.new'), new_invoice_path, :class => "btn btn-default btn-lg" %>
+
+<script>
+    $(document).ready(function () {
+
+        $('select').not('.form-control').addClass('form-control').css('width', '49%').css('display', 'inline')
+    })
+</script>
