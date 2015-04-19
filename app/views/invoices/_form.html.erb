@@ -48,6 +48,18 @@
         <th><%= I18n.t('user_invoice.upkeep') %></th>
         <th><%= I18n.t('user_invoice.other') %></th>
         <th><%= I18n.t('invoice.sum') %></th>
+
+        <th class="not-hidden"><%= I18n.t('invoice.hot_water') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.cold_water') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.id') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.user_id') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.power_price') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.power_usage') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.hot_water_price') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.hot_water_usage') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.cold_water_price') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.cold_water_usage') %></th>
+        <th class="not-hidden"><%= I18n.t('invoice.other_name') %></th>
       </tr>
       </thead>
       <tbody>
@@ -70,18 +82,18 @@
             <td><%= ui.text_field :other_sum, class: "form-control other_sum sum-contributor" %></td>
             <td><%= text_field_tag 'sum_' + ui.object.id.to_s, nil, class: "form-control invoice-sum" %></td>
 
-            <td class="hidden"><%= text_field_tag nil, nil, class: "form-control sum-contributor hot_water" %></td>
-            <td class="hidden"><%= text_field_tag nil, nil, class: "form-control sum-contributor cold_water" %></td>
+            <td class="not-hidden"><%= text_field_tag nil, nil, class: "form-control water-sum-contributor hot_water" %></td>
+            <td class="not-hidden"><%= text_field_tag nil, nil, class: "form-control water-sum-contributor cold_water" %></td>
 
-            <td class="hidden"><%= ui.text_field :id, class: "form-control" %></td>
-            <td class="hidden"><%= ui.text_field :user_id, class: "form-control" %></td>
-            <td class="hidden"><%= ui.text_field :power_price, class: "form-control power-contributor power_price" %></td>
-            <td class="hidden"><%= ui.text_field :power_usage, class: "form-control power-contributor power_usage" %></td>
-            <td class="hidden"><%= ui.text_field :hot_water_price, class: "form-control hot_water-contributor hot_water_price" %></td>
-            <td class="hidden"><%= ui.text_field :hot_water_usage, class: "form-control hot_water-contributor hot_water_usage" %></td>
-            <td class="hidden"><%= ui.text_field :cold_water_price, class: "form-control cold_water-contributor cold_water_price" %></td>
-            <td class="hidden"><%= ui.text_field :cold_water_usage, class: "form-control cold_water-contributor cold_water_usage" %></td>
-            <td class="hidden"><%= ui.text_field :other_name, class: "form-control" %></td>
+            <td class="not-hidden"><%= ui.text_field :id, class: "form-control" %></td>
+            <td class="not-hidden"><%= ui.text_field :user_id, class: "form-control" %></td>
+            <td class="not-hidden"><%= ui.text_field :power_price, class: "form-control power-contributor power_price" %></td>
+            <td class="not-hidden"><%= ui.text_field :power_usage, class: "form-control power-contributor power_usage" %></td>
+            <td class="not-hidden"><%= ui.text_field :hot_water_price, class: "form-control hot_water-contributor hot_water_price" %></td>
+            <td class="not-hidden"><%= ui.text_field :hot_water_usage, class: "form-control hot_water-contributor hot_water_usage" %></td>
+            <td class="not-hidden"><%= ui.text_field :cold_water_price, class: "form-control cold_water-contributor cold_water_price" %></td>
+            <td class="not-hidden"><%= ui.text_field :cold_water_usage, class: "form-control cold_water-contributor cold_water_usage" %></td>
+            <td class="not-hidden"><%= ui.text_field :other_name, class: "form-control" %></td>
           </tr>
       <% end %>
       </tbody>
@@ -129,9 +141,9 @@
         })
     }
 
-    function sumupContainer(container) {
-        var inputs = container.find('.sum-contributor');
-        var sum = container.find(".invoice-sum");
+    function sumupContainer(container, sumSelector, sumableSelector) {
+        var inputs = container.find(sumableSelector);
+        var sum = container.find(sumSelector);
         var total = 0;
         inputs.each(function (i, field) {
             total += parseFloat($(field).val())
@@ -166,7 +178,12 @@
 
         $('.sum-contributor').change(function (event) {
             var container = $(event.target).closest('tr');
-            sumupContainer(container);
+            sumupContainer(container, ".invoice-sum", '.sum-contributor');
+        });
+
+        $('.water-sum-contributor').change(function (event) {
+            var container = $(event.target).closest('tr');
+            sumupContainer(container, ".water", '.water-sum-contributor');
         });
 
         synchronizedFields('.power_usage');
@@ -181,7 +198,7 @@
         applyMultiplyingLogic('.cold_water');
 
         $('.summable-row').each(function (i, row) {
-            sumupContainer($(row));
+            sumupContainer($(row), ".invoice-sum", '.sum-contributor');
             multiplyForContainer($(row), '.power');
             multiplyForContainer($(row), '.hot_water');
             multiplyForContainer($(row), '.cold_water');
