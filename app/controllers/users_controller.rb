@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :update_password]
   before_action :authenticate_admin!, except: [:update_password]
   before_action :authenticate_user!, only: [:update_password]
 
@@ -50,6 +50,16 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
+      end
+    end
+  end
+
+  def update_password
+    respond_to do |format|
+      if @user.update(params.require(:user).permit(:password, :password_confirmation))
+        format.html { redirect_to :back, notice: 'User was successfully updated.' }
+      else
+        format.html { redirect_to :back, alert: @user.errors.full_messages.join('; ') }
       end
     end
   end

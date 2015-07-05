@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get 'static/home'
 
   scope "/admins" do
-    resources :users
+    resources :users do
+      member do
+        get :update_password
+      end
+    end
     resources :admins
   end
 

@@ -1,3 +1,11 @@
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <% @user.errors.full_messages.each do |message| %>
+          <div class="alert alert-danger" role="alert"><%= message %></div>
+      <% end %>
+    </div>
+<% end %>
+
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -9,39 +17,44 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        <form class="form-horizontal">
 
-          <div class="form-group">
-            <label class="col-sm-2 control-label"><%= I18n.t('devise.user.email') %></label>
+        <%= form_tag update_password_user_path(@user.id), :method => 'get', :class => "schedule-form form-horizontal" do %>
 
-            <div class="col-sm-10">
-              <p class="form-control-static"><%= @user.email %></p>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"><%= I18n.t('devise.user.email') %></label>
+
+              <div class="col-sm-10">
+                <p class="form-control-static"><%= @user.email %></p>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label class="col-sm-2 control-label"><%= I18n.t('devise.user.first_name') %></label>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"><%= I18n.t('devise.user.first_name') %></label>
 
-            <div class="col-sm-10">
-              <p class="form-control-static"><%= @user.first_name %></p>
+              <div class="col-sm-10">
+                <p class="form-control-static"><%= @user.first_name %></p>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <%= label_tag :password, I18n.t('devise.user.password'), class: "col-md-2 control-label" %>
-            <div class="col-sm-4">
-              <%= password_field_tag :password, nil, autocomplete: "off", class: "form-control" %>
+            <div class="form-group">
+              <%= label_tag 'user[password]', I18n.t('devise.user.password'), class: "col-md-2 control-label" %>
+              <div class="col-sm-4">
+                <%= password_field_tag 'user[password]', nil, autocomplete: "off", class: "form-control" %>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <%= label_tag :password_confirmation, I18n.t('devise.user.password_confirmation'), class: "col-md-2 control-label" %>
-            <div class="col-sm-4">
-              <%= password_field_tag :password_confirmation, nil, autocomplete: "off", class: "form-control" %>
+            <div class="form-group">
+              <%= label_tag 'user[password_confirmation]', I18n.t('devise.user.password_confirmation'), class: "col-md-2 control-label" %>
+              <div class="col-sm-4">
+                <%= password_field_tag 'user[password_confirmation]', nil, autocomplete: "off", class: "form-control" %>
+              </div>
             </div>
-          </div>
-
-        </form>
+            <div class="form-group">
+              <div class="col-sm-4 col-md-offset-2">
+                <%= submit_tag I18n.t('user_home.update_password'), class: "btn btn-info" %>
+              </div>
+            </div>
+        <% end %>
       </div>
     </div>
   </div>
