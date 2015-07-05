@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
     @current_user = current_user
     @current_admin = current_admin
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.instance_of? User
+      home_path
+    end
+  end
 end

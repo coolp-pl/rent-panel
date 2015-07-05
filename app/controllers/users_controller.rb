@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except: [:update_password]
+  before_action :authenticate_user!, only: [:update_password]
 
   # GET /users
   # GET /users.json

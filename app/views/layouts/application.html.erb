@@ -17,6 +17,7 @@
       <%= yield :navbar %>
 
       <% if @current_user %>
+          <li><%= link_to I18n.t('navigation.home'), home_path, class: "btn btn-default" %></li>
           <li><%= link_to I18n.t('devise.user.log_out'), destroy_session_path(@current_user), :method => :delete, class: "btn btn-default" %></li>
       <% end %>
       <% if @current_admin %>
