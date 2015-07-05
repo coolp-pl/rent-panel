@@ -64,7 +64,12 @@
   </tbody>
 </table>
 
-<%= link_to I18n.t('common.new'), new_invoice_path, :class => "btn btn-default btn-lg" %>
+<%= form_tag new_invoice_path, :method => 'get', :class => "schedule-form form-inline" do %>
+    <div class="form-group col-md-10">
+      <%= select_tag :rentable_id, options_for_select(Rentable.all.map { |s| [s.city + ' ' +s.street, s.id] }), {include_blank: false} %>
+      <%= submit_tag I18n.t('invoices.new_for_selected'), class: "btn btn-default" %>
+    </div>
+<% end %>
 
 <script>
     $(document).ready(function () {

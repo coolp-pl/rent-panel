@@ -28,6 +28,8 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    @invoice.rentable_id = params[:rentable_id]
+    @invoice.user_invoices = Rentable.find(params[:rentable_id]).users.map { |u| UserInvoice.new(:user_id => u.id) }
   end
 
   # GET /invoices/1/edit

@@ -8,9 +8,10 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :rentable_id, I18n.t('invoice.rentable'), class: "col-md-2 control-label" %>
+      <%= f.label :rentable_id_mock, I18n.t('invoice.rentable'), class: "col-md-2 control-label" %>
       <div class="col-sm-5">
-        <%= f.select :rentable_id, options_for_select(Rentable.all.map { |s| [s.city + ' ' +s.street, s.id] }, :selected => @invoice.rentable_id), {include_blank: true}, {:class => "form-control"} %>
+        <%= text_field_tag :rentable_id_mock, f.object.rentable.city+' '+f.object.rentable.street, class: "form-control", disabled: true %>
+        <%= f.select :rentable_id, options_for_select(Rentable.all.map { |s| [s.city + ' ' +s.street, s.id] }, :selected => @invoice.rentable_id), {include_blank: true}, {:class => "form-control hidden"} %>
       </div>
     </div>
 
