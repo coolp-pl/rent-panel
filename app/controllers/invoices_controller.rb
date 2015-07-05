@@ -82,8 +82,9 @@ class InvoicesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def invoice_params
-    params.require(:invoice).permit(:rentable_id, :due, :paid,
-                                    user_invoices_attributes: [:id, :invoice_id, :user_id, :rent, :trash, :heating, :upkeep, :power, :power_price, :power_usage, :water, :hot_water_price, :hot_water_usage, :cold_water_price, :cold_water_usage, :other_name, :other_sum]
+    params.require(:invoice).permit(
+        :rentable_id, :due, :paid,
+        user_invoices_attributes: [:id, :invoice_id, :user_id, :rent, :trash, :heating, :upkeep, :power, :power_price, :power_usage, :water, :hot_water_price, :hot_water_usage, :cold_water_price, :cold_water_usage, :other_name, :other_sum]
     )
   end
 end
