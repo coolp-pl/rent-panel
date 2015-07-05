@@ -163,14 +163,32 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th><%= I18n.t('invoice.rentable') %></th>
+            <th><%= I18n.t('invoice.due') %></th>
+            <th><%= I18n.t('invoice.total') %></th>
+            <th><%= I18n.t('invoice.paid') %></th>
+            <th><%= I18n.t('common.actions') %></th>
+          </tr>
+          </thead>
 
+          <tbody>
+          <% @user.user_invoices.each do |ui| %>
+              <tr>
+                <td><%= ui.invoice.rentable ? ui.invoice.rentable.city+' '+ui.invoice.rentable.street : '' %></td>
+                <td><%= ui.invoice.due %></td>
+                <td><%= ui.total %></td>
+                <td><%= ui.invoice.paid %></td>
+                <td>
+                  <%= link_to I18n.t('common.details'), edit_invoice_path(ui), :class => "btn btn-info" %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
 
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
