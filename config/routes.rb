@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :user_invoices
 
-  resources :invoices
+  resources :invoices do
+    member do
+      get :mark_paid
+    end
+  end
 
   resources :rentables
 

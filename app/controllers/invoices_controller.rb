@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy, :mark_paid]
 
   # GET /invoices
   # GET /invoices.json
@@ -23,6 +23,13 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     render :edit
+  end
+
+  # GET /invoices/1
+  # GET /invoices/1.json
+  def mark_paid
+    @invoice.update(:paid => true)
+    redirect_to :back
   end
 
   # GET /invoices/new

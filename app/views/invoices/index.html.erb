@@ -57,6 +57,7 @@
         <td><%= invoice.paid %></td>
         <td>
           <%= link_to I18n.t('common.edit'), edit_invoice_path(invoice), :class => "btn btn-link" %>
+          <%= link_to I18n.t('common.mark_paid'), mark_paid_invoice_path(invoice), :class => "btn btn-link" %>
           <%= link_to I18n.t('common.destroy'), invoice, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-link" %>
         </td>
       </tr>
