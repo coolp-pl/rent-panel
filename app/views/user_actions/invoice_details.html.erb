@@ -1,0 +1,149 @@
+<div class="form-horizontal">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('invoice.rentable') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= @user_invoice.invoice.rentable.street %><br>
+        <%= @user_invoice.invoice.rentable.zip %>
+        <%= @user_invoice.invoice.rentable.city %><br>
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('invoice.due') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user_invoice.invoice.due %></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('invoice.paid') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user_invoice.invoice.paid %></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('rentables.admin') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user_invoice.invoice.rentable.admin.last_name + ' ' +@user.rentable.admin.first_name %></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('rentables.account_number') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user.rentable.account_number %></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('rentables.transfer_address') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user.rentable.transfer_address %></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('rentables.transfer_title') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user.rentable.transfer_title %></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"><%= I18n.t('invoice.total') %></label>
+
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user_invoice.total %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <label class="col-sm-2 control-label"><%= I18n.t('invoice.total') %></label>
+
+    <div class="col-md-4">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th><%= I18n.t('invoice.what') %></th>
+          <th><%= I18n.t('invoice.how_many') %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= I18n.t('user_invoice.rent') %></td>
+          <td><%= @user_invoice.rent %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('user_invoice.power') %></td>
+          <td><%= @user_invoice.power %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('user_invoice.water') %></td>
+          <td><%= @user_invoice.water %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('user_invoice.trash') %></td>
+          <td><%= @user_invoice.trash %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('user_invoice.heating') %></td>
+          <td><%= @user_invoice.heating %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('user_invoice.upkeep') %></td>
+          <td><%= @user_invoice.upkeep %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('user_invoice.other') %></td>
+          <td><%= @user_invoice.other_sum %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('invoice.total') %></td>
+          <td><%= @user_invoice.total %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-bordered table-hover" style="width: 200px">
+        <thead>
+        <tr>
+          <th><%= I18n.t('invoice.media') %></th>
+          <th><%= I18n.t('invoice.usage') %></th>
+          <th><%= I18n.t('invoice.price') %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= I18n.t('invoice.power') %></td>
+          <td><%= @user_invoice.power_usage %></td>
+          <td><%= @user_invoice.power_price %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('invoice.cold_water') %></td>
+          <td><%= @user_invoice.cold_water_usage %></td>
+          <td><%= @user_invoice.cold_water_price %></td>
+        </tr>
+        <tr>
+          <td><%= I18n.t('invoice.hot_water') %></td>
+          <td><%= @user_invoice.hot_water_usage %></td>
+          <td><%= @user_invoice.hot_water_price %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to I18n.t('navigation.back'), :back, class: "btn btn-link" %>

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'home' => 'user_actions#index'
 
+  get 'invoice_details/:id' => 'user_actions#invoice_details', as: :invoice_details
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

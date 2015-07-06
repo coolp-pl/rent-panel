@@ -1,8 +1,12 @@
 class UserActionsController < ApplicationController
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, :invoice_details]
   before_action :authenticate_user!
 
   def index
+  end
+
+  def invoice_details
+    @user_invoice = UserInvoice.find(params[:id])
   end
 
   private
