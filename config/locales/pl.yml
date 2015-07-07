@@ -29,7 +29,7 @@ pl:
       password_confirmation: "Powtórz hasło"
       log_out: "Wyloguj"
   static:
-    welcome: "Witaj w panelu logowania Notos Inwvest!"
+    welcome: "Witaj w panelu logowania Notos Invest!"
   user_home:
     title:
       pending_transfer_details: "Dane do przelewu"
