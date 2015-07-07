@@ -134,3 +134,13 @@ pl:
     street: "Ulica"
     zip: "Kod pocztowy"
     new: "Nowa nieruchomość"
+    edit: "Edytuj nieruchomość"
+  activerecord:
+    errors:
+      models:
+        admin:
+          attributes:
+            password_confirmation:
+              confirmation: "Hasło jest źle powtórzone"
+            password: 
+              too_short: "Hasło jest za krótkie"
