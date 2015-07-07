@@ -34,7 +34,7 @@ pl:
     title:
       pending_transfer_details: "Dane do przelewu"
       pending_transfers: "Czynsze niezapłacone"
-      rentable_details: "Informacje o mieszkaniu"
+      rentable_details: "Informacje o mieszkaniu i dane kontaktowe"
       invoices_history: "Historia"
       inventory: "Protokół zdawczo-odbiorczy"
       user: "Użytkownik"
