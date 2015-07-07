@@ -7,6 +7,7 @@ pl:
   devise:
     user:
       log_in: "Zaloguj"
+      log_out: "Wyloguj"
       email: "Email"
       password: "Hasło"
       remember_me: "Zapamiętej mnie"
@@ -17,7 +18,7 @@ pl:
       rentable: "Mieszkanie/pokój"
       password_confirmation: "Powtórz hasło"
     admin:
-      log_in: "Zaloguj"
+      log_in: "Administruj"
       email: "Email"
       password: "Hasło"
       remember_me: "Zapamiętej mnie"
@@ -28,7 +29,7 @@ pl:
       password_confirmation: "Powtórz hasło"
       log_out: "Wyloguj"
   static:
-    welcome: "Witaj, Panie Arturze!"
+    welcome: "Witaj w panelu logowania Notos Inwvest!"
   user_home:
     title:
       pending_transfer_details: "Dane do przelewu"
@@ -88,6 +89,7 @@ pl:
     users: "Najemcy"
     admins: "Administratorzy"
     rentables: "Nieruchomości"
+    home: "Strona główna"
   invoices:
     new_for_selected: "Nowy czynsz"
   user_invoice:
