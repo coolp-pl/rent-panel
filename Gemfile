@@ -7,8 +7,6 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'devise-i18n'
 
-gem 'turbo-sprockets-rails3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
