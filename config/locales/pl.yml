@@ -13,6 +13,8 @@ pl:
       forgot_password: "Zapomniałem hasła"
       send_instructions: "Wyślij nowe hasło"
       first_name: "Imię"
+      last_name: "Nazwisko"
+      rentable: "Mieszkanie/pokój"
       password_confirmation: "Powtórz hasło"
     admin:
       log_in: "Zaloguj"
@@ -21,6 +23,9 @@ pl:
       remember_me: "Zapamiętej mnie"
       forgot_password: "Zapomniałem hasła"
       send_instructions: "Wyślij nowe hasło"
+      first_name: "Imię"
+      last_name: "Nazwisko"
+      password_confirmation: "Powtórz hasło"
       log_out: "Wyloguj"
   static:
     welcome: "Witaj, Panie Arturze!"
@@ -44,6 +49,7 @@ pl:
     city: "Miasto"
     street: "Ulica"
     zip: "Kod pocztowy"
+    inventory: "Protokół zdawczo-odbiorczy"
   invoice:
     rentable: "Mieszkanie"
     due: "Termin zapłaty"
@@ -65,6 +71,7 @@ pl:
     filter_due: "Filrtuj po terminie płatności"
     include_paid: "Uwzględnij zapłacone"
     include_non_paid: "Uwzględnij niezapłacone"
+    edit: "Edytuj"
   common:
     actions: "Opcje"
     details: "Szczegóły"
@@ -74,12 +81,13 @@ pl:
     destroy: "Usuń"
     save: "Zapisz"
     back: "Powrót"
+    new: "Dodaj nowy"
   navigation:
     back: "Powrót"
     invoices: "Czynsze"
     users: "Najemcy"
     admins: "Administratorzy"
-    rentables: "Mieszkania"
+    rentables: "Nieruchomości"
   invoices:
     new_for_selected: "Nowy czynsz"
   user_invoice:
@@ -103,4 +111,22 @@ pl:
     oct: "Paździednik"
     nov: "Listopad"
     dec: "Grudzień"
-
+  user:
+    listing_all: "Lista najemców"
+    email: "Email"
+    first_name: "Imię"
+    last_name: "Nazwisko"
+    new: "Nowy najemca"
+  admin:
+    listing_all: "Lista administratorów"
+    email: "Email"
+    first_name: "Imię"
+    last_name: "Nazwisko"
+    new: "Nowy administrator"
+  rentable: 
+    listing_all: "Lista nieruchomości"
+    category: "Rodzaj"
+    city: "Miasto"
+    street: "Ulica"
+    zip: "Kod pocztowy"
+    new: "Nowa nieruchomość"
