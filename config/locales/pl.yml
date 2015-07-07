@@ -119,12 +119,14 @@ pl:
     first_name: "Imię"
     last_name: "Nazwisko"
     new: "Nowy najemca"
+    edit: "Edytuj najemcę"
   admin:
     listing_all: "Lista administratorów"
     email: "Email"
     first_name: "Imię"
     last_name: "Nazwisko"
     new: "Nowy administrator"
+    edit: "Edytuj administratora"
   rentable: 
     listing_all: "Lista nieruchomości"
     category: "Rodzaj"
