@@ -16,6 +16,11 @@ pl:
       password_confirmation: "Powtórz hasło"
     admin:
       log_in: "Administrowanie"
+      email: "Email"
+      password: "Hasło"
+      remember_me: "Zapamiętej mnie"
+      forgot_password: "Zapomniałem hasła"
+      send_instructions: "Wyślij nowe hasło"
   static:
     welcome: "Witaj, Panie Arturze!"
   user_home:
