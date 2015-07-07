@@ -47,8 +47,8 @@ pl:
     category:
       flat: "Mieszkanie"
       room: "Pokój"
-    city: "Miasto"
-    street: "Ulica"
+    city: "Adres"
+    street: "Oznaczenie"
     zip: "Kod pocztowy"
     inventory: "Protokół zdawczo-odbiorczy"
   invoice:
