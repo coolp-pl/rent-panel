@@ -1,28 +1,95 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 pl:
-  hello: "pl"
   date:
     order:
       - :day
       - :month
       - :year
+  devise:
+    user:
+      log_in: "Logowanie"
+      email: "Email"
+      password: "Hasło"
+      remember_me: "Zapamiętej mnie"
+      forgot_password: "Zapomniałem hasła"
+      send_instructions: "Wyślij nowe hasło"
+      first_name: "Imię"
+      password_confirmation: "Powtórz hasło"
+    admin:
+      log_in: "Administrowanie"
+  static:
+    welcome: "Witaj"
+  user_home:
+    title:
+      pending_transfer_details: "Dane do przelewu"
+      pending_transfers: "Czynsze niezapłacone"
+      rentable_details: "Informacje o mieszkaniu"
+      invoices_history: "Historia"
+      inventory: "Protokół zdawczo-odbiorczy"
+      user: "Użytkownik"
+    update_password: "Zmień hasło"
+  rentables:
+    admin: "Zarządca"
+    account_number: "Numer konta bankowego"
+    transfer_address: "Adres"
+    transfer_title: "Tytuł przelewu"
+    category:
+      flat: "Mieszkanie"
+      room: "Pokój"
+    city: "Miasto"
+    street: "Ulica"
+    zip: "Kod pocztowy"
+  invoice:
+    rentable: "Mieszkanie"
+    due: "Termin zapłaty"
+    total: "Kwota całkowita"
+    paid: "Zapłacone"
+    what: "Opłaty"
+    how_many: "Kwota"
+    media: "Media"
+    usage: "Zużycie"
+    price: "Stawka za jednostkę"
+    power: "Energia elektryczna (kWh)"
+    cold_water: "Woda zimna (m3)"
+    hot_water: "Woda ciepła (m3)"
+    listing_all: "Czynsze - lista"
+    new: "Nowy czynsz"
+    sum: "Suma"
+    for_all: "Dla wszystkich"
+    filter_rentable: "Filtruj po mieszkaniach"
+    filter_due: "Filrtuj po terminie płatności"
+    include_paid: "Uwzględnij zapłacone"
+    include_non_paid: "Uwzględnij niezapłacone"
+  common:
+    actions: "Opcje"
+    details: "Szczegóły"
+    search: "Szukaj"
+    edit: "Edytuj"
+    mark_paid: "Zaznacz jako zapłacone"
+    destroy: "Usuń"
+    save: "Zapisz"
+    back: "Powrót"
+  navigation:
+    back: "Powrót"
+  invoices:
+    new_for_selected: "Nowy czynsz"
+  user_invoice:
+    rent: "Czynsz"
+    power: "Emergia elektryczna"
+    water: "Woda zimna + ciepła"
+    trash: "Wywóz nieczystości stałych"
+    heating: "Ogrzewanie"
+    upkeep: "Utrzymanie części wspólnych"
+    other: "Inne"
+  month:
+    jan: "Styczeń"
+    feb: "Luty"
+    mar: "Marzec"
+    apr: "Kwiecień"
+    may: "Maj"
+    jun: "Czerwiec"
+    jul: "Lipiec"
+    aug: "Sierpień"
+    sep: "Wrzesień"
+    oct: "Paździednik"
+    nov: "Listopad"
+    dec: "Grudzień"
