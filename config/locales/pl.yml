@@ -140,6 +140,23 @@ pl:
       models:
         admin:
           attributes:
+            email:
+              blank: "Brak adresu email"
+            password:"Brak hasła"
+              bland: 
+            password_confirmation:
+              confirmation: "Hasło jest źle powtórzone"
+            password: 
+              too_short: "Hasło jest za krótkie"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Brak adresu email"
+            password:"Brak hasła"
+              bland: 
             password_confirmation:
               confirmation: "Hasło jest źle powtórzone"
             password: 
