@@ -6,7 +6,7 @@ pl:
       - :year
   devise:
     user:
-      log_in: "Logowanie"
+      log_in: "Zaloguj"
       email: "Email"
       password: "Hasło"
       remember_me: "Zapamiętej mnie"
@@ -15,12 +15,13 @@ pl:
       first_name: "Imię"
       password_confirmation: "Powtórz hasło"
     admin:
-      log_in: "Administrowanie"
+      log_in: "Zaloguj"
       email: "Email"
       password: "Hasło"
       remember_me: "Zapamiętej mnie"
       forgot_password: "Zapomniałem hasła"
       send_instructions: "Wyślij nowe hasło"
+      log_out: "Wyloguj"
   static:
     welcome: "Witaj, Panie Arturze!"
   user_home:
@@ -75,6 +76,10 @@ pl:
     back: "Powrót"
   navigation:
     back: "Powrót"
+    invoices: "Czynsze"
+    users: "Najemcy"
+    admins: "Administratorzy"
+    rentables: "Mieszkania"
   invoices:
     new_for_selected: "Nowy czynsz"
   user_invoice:
@@ -98,3 +103,4 @@ pl:
     oct: "Paździednik"
     nov: "Listopad"
     dec: "Grudzień"
+
