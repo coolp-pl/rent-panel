@@ -17,7 +17,7 @@ pl:
     admin:
       log_in: "Administrowanie"
   static:
-    welcome: "Witaj"
+    welcome: "Witaj, Panie Arturze!"
   user_home:
     title:
       pending_transfer_details: "Dane do przelewu"
