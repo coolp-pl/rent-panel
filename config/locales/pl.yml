@@ -142,8 +142,8 @@ pl:
           attributes:
             email:
               blank: "Brak adresu email"
-            password:"Brak hasła"
-              bland: 
+            password:
+              blank: "Brak hasła"
             password_confirmation:
               confirmation: "Hasło jest źle powtórzone"
             password: 
@@ -155,8 +155,8 @@ pl:
           attributes:
             email:
               blank: "Brak adresu email"
-            password:"Brak hasła"
-              bland: 
+            password:
+              blank: "Brak hasła"
             password_confirmation:
               confirmation: "Hasło jest źle powtórzone"
             password: 
