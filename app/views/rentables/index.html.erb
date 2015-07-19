@@ -14,7 +14,7 @@
   <tbody>
   <% @rentables.each do |rentable| %>
       <tr>
-        <td><%= rentable.category %></td>
+        <td><%= I18n.t('rentables.categories.' + rentable.category) %></td>
         <td><%= rentable.city %></td>
         <td><%= rentable.street %></td>
         <td><%= rentable.zip %></td>

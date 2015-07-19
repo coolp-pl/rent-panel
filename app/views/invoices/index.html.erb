@@ -54,7 +54,7 @@
       <tr>
         <td><%= invoice.rentable ? invoice.rentable.city+' '+invoice.rentable.street : '' %></td>
         <td><%= invoice.due %></td>
-        <td><%= invoice.paid %></td>
+        <td><%= I18n.t('common.' +invoice.paid.to_s) %></td>
         <td>
           <%= link_to I18n.t('common.edit'), edit_invoice_path(invoice), :class => "btn btn-link" %>
           <%= link_to I18n.t('common.mark_paid'), mark_paid_invoice_path(invoice), :class => "btn btn-link" %>

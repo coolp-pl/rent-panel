@@ -24,7 +24,7 @@
     <label class="col-sm-2 control-label"><%= I18n.t('invoice.paid') %></label>
 
     <div class="col-sm-10">
-      <p class="form-control-static"><%= @user_invoice.invoice.paid %></p>
+      <p class="form-control-static"><%= I18n.t('common.' + @user_invoice.invoice.paid.to_s) %></p>
     </div>
   </div>
 

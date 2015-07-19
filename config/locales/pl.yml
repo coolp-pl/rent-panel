@@ -39,18 +39,20 @@ pl:
       inventory: "Protokół zdawczo-odbiorczy"
       user: "Użytkownik"
     update_password: "Zmień hasło"
+    pending_transfers: "Oczekujące na zapłatę"
   rentables:
     admin: "Zarządca"
     account_number: "Numer konta bankowego"
     transfer_address: "Adres"
     transfer_title: "Tytuł przelewu"
-    category:
+    categories:
       flat: "Mieszkanie"
       room: "Pokój"
     city: "Adres"
     street: "Oznaczenie"
     zip: "Kod pocztowy"
     inventory: "Protokół zdawczo-odbiorczy"
+    category: "Typ"
   invoice:
     rentable: "Mieszkanie"
     due: "Termin zapłaty"

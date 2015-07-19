@@ -10,7 +10,7 @@
     <div class="form-group">
       <%= f.label :category, I18n.t('rentables.category'), class: "col-md-2 control-label" %>
       <div class="col-sm-3">
-        <%= f.select :category, options_for_select(Rentable.categories.map { |s| [I18n.t('rentables.category.'+s[0]), s[0]] }, :selected => @rentable.category), {include_blank: true}, {:class => "form-control"} %>
+        <%= f.select :category, options_for_select(Rentable.categories.map { |s| [I18n.t('rentables.categories.'+s[0]), s[0]] }, :selected => @rentable.category), {include_blank: true}, {:class => "form-control"} %>
       </div>
     </div>
 
