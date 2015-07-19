@@ -7,6 +7,7 @@
     <th><%= I18n.t('rentable.city') %></th>
     <th><%= I18n.t('rentable.street') %></th>
     <th><%= I18n.t('rentable.zip') %></th>
+    <th><%= I18n.t('rentable.transfer_person') %></th>
     <th><%= I18n.t('common.actions') %></th>
   </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= rentable.city %></td>
         <td><%= rentable.street %></td>
         <td><%= rentable.zip %></td>
+        <td><%= rentable.transfer_person %></td>
         <td>
           <%= link_to I18n.t('common.edit'), edit_rentable_path(rentable), :class => "btn btn-link" %>
           <%= link_to I18n.t('common.destroy'), rentable, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-link" %>

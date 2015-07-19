@@ -71,6 +71,6 @@ class RentablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rentable_params
-      params.require(:rentable).permit(:category, :city, :street, :zip, :inventory, :admin_id, :account_number, :transfer_address, :transfer_title)
+      params.require(:rentable).permit(:category, :city, :street, :zip, :inventory, :pass_code, :admin_id, :account_number, :transfer_person, :transfer_address, :transfer_title)
     end
 end

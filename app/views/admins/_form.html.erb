@@ -15,6 +15,20 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :contact_email, I18n.t('devise.admin.contact_email'), class: "col-md-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.email_field :contact_email, class: "form-control" %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :phone_number, I18n.t('devise.admin.phone_number'), class: "col-md-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :phone_number, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.label :first_name, I18n.t('devise.admin.first_name'), class: "col-md-2 control-label" %>
       <div class="col-sm-4">
         <%= f.text_field :first_name, class: "form-control" %>

@@ -4,6 +4,8 @@
   <thead>
   <tr>
     <th><%= I18n.t('admin.email') %></th>
+    <th><%= I18n.t('admin.contact_email') %></th>
+    <th><%= I18n.t('admin.phone_number') %></th>
     <th><%= I18n.t('admin.first_name') %></th>
     <th><%= I18n.t('admin.last_name') %></th>
     <th><%= I18n.t('common.actions') %></th>
@@ -14,6 +16,8 @@
   <% @admins.each do |admin| %>
       <tr>
         <td><%= admin.email %></td>
+        <td><%= admin.contact_email %></td>
+        <td><%= admin.phone_number %></td>
         <td><%= admin.first_name %></td>
         <td><%= admin.last_name %></td>
         <td>
