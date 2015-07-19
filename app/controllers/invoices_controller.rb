@@ -16,7 +16,8 @@ class InvoicesController < ApplicationController
       queryParams[:rentable_id]=params[:filter][:rentable_id].to_i
     end
 
-    @invoices = Invoice.where(queryParams).where('extract(month from due) = ? AND extract(year from due) = ?', params[:date][:month], params[:date][:year])
+    list = params[:date][:month]!='' ? [params[:date][:month]] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    @invoices = Invoice.where(queryParams).where('extract(month from due) in (?) AND extract(year from due) = ?', list, params[:date][:year])
   end
 
   # GET /invoices/1

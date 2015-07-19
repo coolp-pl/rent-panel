@@ -11,16 +11,15 @@
     <div class="form-group col-sm-3">
       <%= label :rentable_id, I18n.t('invoice.filter_rentable'), class: "control-label" %>
       <div class="">
-        <%= select("filter", :rentable_id, Rentable.all.collect { |s| [s.city + ' ' +s.street, s.id] }, {include_blank: 'None', :selected => params[:filter][:rentable_id]}, {:class => "form-control"}) %>
+        <%= select("filter", :rentable_id, Rentable.all.collect { |s| [s.city + ' ' +s.street, s.id] }, {include_blank: I18n.t('common.any'), :selected => params[:filter][:rentable_id]}, {:class => "form-control"}) %>
       </div>
     </div>
 
     <div class="form-group col-sm-4">
       <%= label :due, I18n.t('invoice.filter_due'), class: "control-label" %>
       <div class="">
-        <% date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, 1) %>
-        <%= select_month date, {:use_month_names => [I18n.t('month.jan'), I18n.t('month.feb'), I18n.t('month.mar'), I18n.t('month.apr'), I18n.t('month.may'), I18n.t('month.jun'), I18n.t('month.jul'), I18n.t('month.aug'), I18n.t('month.sep'), I18n.t('month.oct'), I18n.t('month.nov'), I18n.t('month.dec')]}, :html_options => {:class => "form-control"} %>
-        <%= select_year date, {}, :html_options => {:class => "form-control"} %>
+        <%= select_month  params[:date][:month] ? params[:date][:month].to_i : 0, {include_blank: I18n.t('common.any'), :use_month_names => [I18n.t('month.jan'), I18n.t('month.feb'), I18n.t('month.mar'), I18n.t('month.apr'), I18n.t('month.may'), I18n.t('month.jun'), I18n.t('month.jul'), I18n.t('month.aug'), I18n.t('month.sep'), I18n.t('month.oct'), I18n.t('month.nov'), I18n.t('month.dec')]}, :html_options => {:class => "form-control"} %>
+        <%= select_year params[:date][:year].to_i, {}, :html_options => {:class => "form-control"} %>
       </div>
     </div>
 
