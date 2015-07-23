@@ -42,7 +42,7 @@ pl:
     pending_transfers: "Oczekujące na zapłatę"
   rentables:
     admin:
-      contact_email: "Email kontakotwy"
+      contact_email: "Email kontaktowy"
       phone_number:  "Telefon kontaktowy"
     account_number: "Numer konta bankowego"
     transfer_address: "Adres"
