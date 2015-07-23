@@ -28,6 +28,8 @@ pl:
       last_name: "Nazwisko"
       password_confirmation: "Powtórz hasło"
       log_out: "Wyloguj"
+      contact_email: "Email kontaktowy"
+      phone_number: "Telefon kontaktowy"
   static:
     welcome: "Witaj w panelu logowania Notos Invest!"
   user_home:
@@ -52,7 +54,7 @@ pl:
       flat: "Mieszkanie"
       room: "Pokój"
     city: "Adres"
-    street: "Oznaczenie"
+    street: "Okres najmu"
     zip: "Kod pocztowy"
     inventory: "Protokół zdawczo-odbiorczy"
     category: "Typ"
@@ -92,6 +94,7 @@ pl:
     new: "Dodaj nowy"
     true: "Tak"
     false: "Nie"
+    any: "Wszystkie"
   navigation:
     back: "Powrót"
     invoices: "Czynsze"
@@ -136,14 +139,17 @@ pl:
     last_name: "Nazwisko"
     new: "Nowy administrator"
     edit: "Edytuj administratora"
+    contact_email: "Email kontaktowy"
+    phone_number: "Telefon kontaktowy"
   rentable: 
     listing_all: "Lista nieruchomości"
     category: "Rodzaj"
-    city: "Miasto"
-    street: "Ulica"
+    city: "Adres"
+    street: "Okres najmu"
     zip: "Kod pocztowy"
     new: "Nowa nieruchomość"
     edit: "Edytuj nieruchomość"
+    transfer_person: "Dane odbiorcy"
   activerecord:
     errors:
       models:
