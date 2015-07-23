@@ -92,8 +92,8 @@ pl:
     save: "Zapisz"
     back: "Powrót"
     new: "Dodaj nowy"
-    true: "Tak"
-    false: "Nie"
+    bool_true: "Tak"
+    bool_false: "Nie"
     any: "Wszystkie"
   navigation:
     back: "Powrót"
