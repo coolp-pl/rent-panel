@@ -8,7 +8,7 @@ pl:
     user:
       log_in: "Zaloguj się"
       log_out: "Wyloguj"
-      email: "Email"
+      email: "E-mail"
       password: "Hasło"
       remember_me: "Zapamiętaj mnie"
       forgot_password: "Nie pamiętam hasła"
@@ -19,7 +19,7 @@ pl:
       password_confirmation: "Powtórz hasło"
     admin:
       log_in: "Administruj"
-      email: "Email"
+      email: "E-mail"
       password: "Hasło"
       remember_me: "Zapamiętaj mnie"
       forgot_password: "Nie pamiętam hasła"
@@ -28,7 +28,7 @@ pl:
       last_name: "Nazwisko"
       password_confirmation: "Powtórz hasło"
       log_out: "Wyloguj"
-      contact_email: "Email kontaktowy"
+      contact_email: "E-mail kontaktowy"
       phone_number: "Telefon kontaktowy"
   static:
     welcome: "Witaj w panelu logowania Notos Invest!"
@@ -45,7 +45,7 @@ pl:
   rentables:
     admin: "Zarządca"
     admins:
-      contact_email: "Email kontakotwy"
+      contact_email: "E-mail kontakotwy"
       phone_number:  "Telefon kontaktowy"
     account_number: "Numer konta bankowego"
     transfer_address: "Adres"
@@ -127,14 +127,14 @@ pl:
     dec: "Grudzień"
   user:
     listing_all: "Lista najemców"
-    email: "Email"
+    email: "E-mail"
     first_name: "Imię"
     last_name: "Nazwisko"
     new: "Nowy najemca"
     edit: "Edytuj najemcę"
   admin:
     listing_all: "Lista administratorów"
-    email: "Email"
+    email: "E-mail"
     first_name: "Imię"
     last_name: "Nazwisko"
     new: "Nowy administrator"
@@ -156,7 +156,7 @@ pl:
         admin:
           attributes:
             email:
-              blank: "Brak adresu email"
+              blank: "Brak adresu e-mail"
             password:
               blank: "Brak hasła"
             password_confirmation:
@@ -169,11 +169,13 @@ pl:
         user:
           attributes:
             email:
-              blank: "Brak adresu email"
+              blank: "Brak adresu e-mail"
             password:
               blank: "Brak hasła"
             password_confirmation:
               confirmation: "Hasło jest źle powtórzone"
             password: 
               too_short: "Hasło jest za krótkie"
-  company: "Notos Invest"
+  company: "Notos Invest - panel logowania"
+  page_title: "Notos Invest - panel logowania"
+  
