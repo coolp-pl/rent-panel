@@ -41,7 +41,8 @@ pl:
     update_password: "Zmień hasło"
     pending_transfers: "Oczekujące na zapłatę"
   rentables:
-    admin:
+    admin: "Zarządca"
+    admins:
       contact_email: "Email kontakotwy"
       phone_number:  "Telefon kontaktowy"
     account_number: "Numer konta bankowego"
