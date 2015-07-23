@@ -193,7 +193,7 @@
                 <td><%= ui.invoice.rentable ? ui.invoice.rentable.city+' '+ui.invoice.rentable.street : '' %></td>
                 <td><%= ui.invoice.due %></td>
                 <td><%= ui.total %></td>
-                <td><%= I18n.t('common.' + ui.invoice.paid.to_s)  %></td>
+                <td><%= I18n.t('common.bool_' + ui.invoice.paid.to_s)  %></td>
                 <td>
                   <%= link_to I18n.t('common.details'), invoice_details_path(ui.id), :class => "btn btn-info" %>
                 </td>

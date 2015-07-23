@@ -12,7 +12,7 @@
 
 <p>
   <strong>Paid:</strong>
-  <%= I18n.t('common.' + @invoice.paid.to_s)  %>
+  <%= I18n.t('common.bool_' + @invoice.paid.to_s)  %>
 </p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
