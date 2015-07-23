@@ -39,7 +39,7 @@ pl:
       rentable_details: "Informacje o mieszkaniu i dane kontaktowe"
       invoices_history: "Historia"
       inventory: "Protokół zdawczo-odbiorczy"
-      user: "Użytkownik"
+      user: "Profil"
     update_password: "Zmień hasło"
     pending_transfers: "Oczekujące na zapłatę"
   rentables:
