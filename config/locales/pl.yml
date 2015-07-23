@@ -42,6 +42,8 @@ pl:
     pending_transfers: "Oczekujące na zapłatę"
   rentables:
     admin: "Zarządca"
+      contact_email: "Email kontakotwy"
+      phone_number:  "Telefon kontaktowy"
     account_number: "Numer konta bankowego"
     transfer_address: "Adres"
     transfer_title: "Tytuł przelewu"
@@ -53,6 +55,8 @@ pl:
     zip: "Kod pocztowy"
     inventory: "Protokół zdawczo-odbiorczy"
     category: "Typ"
+    transfer_person: "Dane odbiorcy"
+    pass_code: "Kod do domofonu"
   invoice:
     rentable: "Mieszkanie"
     due: "Termin zapłaty"
@@ -85,6 +89,8 @@ pl:
     save: "Zapisz"
     back: "Powrót"
     new: "Dodaj nowy"
+    true: "Tak"
+    false: "Nie"
   navigation:
     back: "Powrót"
     invoices: "Czynsze"
@@ -163,3 +169,4 @@ pl:
               confirmation: "Hasło jest źle powtórzone"
             password: 
               too_short: "Hasło jest za krótkie"
+  company: "Notos Invest"
