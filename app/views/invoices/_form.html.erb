@@ -44,6 +44,7 @@
         <th><%= I18n.t('user_invoice.rent') %></th>
         <th><%= I18n.t('user_invoice.power') %></th>
         <th><%= I18n.t('user_invoice.water') %></th>
+        <th><%= I18n.t('user_invoice.gas') %></th>
         <th><%= I18n.t('user_invoice.trash') %></th>
         <th><%= I18n.t('user_invoice.heating') %></th>
         <th><%= I18n.t('user_invoice.upkeep') %></th>
@@ -77,6 +78,7 @@
             <td><%= ui.text_field :rent, class: "form-control rent sum-contributor" %></td>
             <td><%= ui.text_field :power, class: "form-control power sum-contributor" %></td>
             <td><%= ui.text_field :water, class: "form-control water sum-contributor" %></td>
+            <td><%= ui.text_field :gas, class: "form-control gas sum-contributor" %></td>
             <td><%= ui.text_field :trash, class: "form-control trash sum-contributor" %></td>
             <td><%= ui.text_field :heating, class: "form-control heating sum-contributor" %></td>
             <td><%= ui.text_field :upkeep, class: "form-control upkeep sum-contributor" %></td>
@@ -90,6 +92,8 @@
             <td class="hidden"><%= ui.text_field :user_id, class: "form-control" %></td>
             <td class="hidden"><%= ui.text_field :power_price, class: "form-control power-contributor power_price" %></td>
             <td class="hidden"><%= ui.text_field :power_usage, class: "form-control power-contributor power_usage" %></td>
+            <td class="hidden"><%= ui.text_field :gas_price, class: "form-control gas-contributor gas_price" %></td>
+            <td class="hidden"><%= ui.text_field :gas_usage, class: "form-control gas-contributor gas_usage" %></td>
             <td class="hidden"><%= ui.text_field :hot_water_price, class: "form-control hot_water-contributor hot_water_price" %></td>
             <td class="hidden"><%= ui.text_field :hot_water_usage, class: "form-control hot_water-contributor hot_water_usage" %></td>
             <td class="hidden"><%= ui.text_field :cold_water_price, class: "form-control cold_water-contributor cold_water_price" %></td>
@@ -100,6 +104,7 @@
       <tr class="summable-row">
         <td><%= I18n.t('invoice.for_all') %></td>
         <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "rent"} %></td>
+        <td></td>
         <td></td>
         <td></td>
         <td><%= text_field "", "", class: "form-control field-default", :data => {:ref => "trash"} %></td>
@@ -133,6 +138,11 @@
         <td><%= I18n.t('invoice.hot_water') %></td>
         <td><%= text_field_tag nil, nil, class: "form-control hot_water_usage" %></td>
         <td><%= text_field_tag nil, nil, class: "form-control hot_water_price" %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('invoice.gas') %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control gas_usage" %></td>
+        <td><%= text_field_tag nil, nil, class: "form-control gas_price" %></td>
       </tr>
       </tbody>
     </table>
@@ -206,6 +216,8 @@
             sumupContainer(container, ".water", '.water-sum-contributor');
         });
 
+        synchronizedFields('.gas_usage');
+        synchronizedFields('.gas_price');
         synchronizedFields('.power_usage');
         synchronizedFields('.power_price');
         synchronizedFields('.cold_water_usage');
@@ -213,12 +225,14 @@
         synchronizedFields('.hot_water_usage');
         synchronizedFields('.hot_water_price');
 
+        applyMultiplyingLogic('.gas');
         applyMultiplyingLogic('.power');
         applyMultiplyingLogic('.hot_water');
         applyMultiplyingLogic('.cold_water');
 
         $('.summable-row').each(function (i, row) {
             sumupContainer($(row), ".invoice-sum", '.sum-contributor');
+            multiplyForContainer($(row), '.gas');
             multiplyForContainer($(row), '.power');
             multiplyForContainer($(row), '.hot_water');
             multiplyForContainer($(row), '.cold_water');

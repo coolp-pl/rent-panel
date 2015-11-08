@@ -140,6 +140,11 @@
           <td><%= @user_invoice.hot_water_usage %></td>
           <td><%= @user_invoice.hot_water_price %></td>
         </tr>
+        <tr>
+          <td><%= I18n.t('invoice.gas') %></td>
+          <td><%= @user_invoice.gas_usage %></td>
+          <td><%= @user_invoice.gas_price %></td>
+        </tr>
         </tbody>
       </table>
     </div>

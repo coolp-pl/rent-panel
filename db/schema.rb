@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719142404) do
+ActiveRecord::Schema.define(version: 20151108124814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 20150719142404) do
     t.boolean  "paid"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.decimal  "gas_usage"
+    t.decimal  "gas_price"
+    t.decimal  "gas"
   end
 
   add_index "invoices", ["rentable_id"], name: "index_invoices_on_rentable_id", using: :btree
@@ -83,8 +86,11 @@ ActiveRecord::Schema.define(version: 20150719142404) do
     t.float    "cold_water_usage"
     t.string   "other_name"
     t.decimal  "other_sum"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.decimal  "gas_usage",        default: 0.0
+    t.decimal  "gas_price",        default: 0.0
+    t.decimal  "gas",              default: 0.0
   end
 
   add_index "user_invoices", ["invoice_id"], name: "index_user_invoices_on_invoice_id", using: :btree

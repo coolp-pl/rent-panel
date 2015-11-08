@@ -69,6 +69,6 @@ class UserInvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_invoice_params
-      params.require(:user_invoice).permit(:invoice_id, :user_id, :rent, :trash, :heating, :upkeep, :power, :power_price, :power_usage, :water, :hot_water_price, :hot_water_usage, :cold_water_price, :cold_water_usage, :other_name, :other_sum)
+      params.require(:user_invoice).permit(:invoice_id, :user_id, :rent, :trash, :heating, :upkeep, :power, :power_price, :power_usage, :water, :hot_water_price, :hot_water_usage, :cold_water_price, :cold_water_usage, :other_name, :other_sum, :gas, :gas_usage, :gas_price)
     end
 end
