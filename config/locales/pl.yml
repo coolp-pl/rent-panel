@@ -82,6 +82,7 @@ pl:
     include_paid: "Uwzględnij zapłacone"
     include_non_paid: "Uwzględnij niezapłacone"
     edit: "Edytuj"
+    gas: "Gaz"
   common:
     actions: "Opcje"
     details: "Szczegóły"
@@ -112,6 +113,7 @@ pl:
     heating: "Ogrzewanie"
     upkeep: "Utrzymanie części wspólnych"
     other: "Inne"
+    gas: "Gaz"
   month:
     jan: "Styczeń"
     feb: "Luty"
@@ -122,7 +124,7 @@ pl:
     jul: "Lipiec"
     aug: "Sierpień"
     sep: "Wrzesień"
-    oct: "Paździednik"
+    oct: "Październik"
     nov: "Listopad"
     dec: "Grudzień"
   user:
