@@ -82,7 +82,7 @@ pl:
     include_paid: "Uwzględnij zapłacone"
     include_non_paid: "Uwzględnij niezapłacone"
     edit: "Edytuj"
-    gas: "Gaz"
+    gas: "Gaz (m3)"
   common:
     actions: "Opcje"
     details: "Szczegóły"
